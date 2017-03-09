@@ -1,4 +1,36 @@
 /*
+Fonts specific to this project, provided in https://www.dropbox.com/sh/xjz1wwqifm73f87/AABTVDvqKdZwiVf-Qu6nVRJTa?dl=0
+Assuming Gotham is permissible to make a webfont in this case, using Font Squirrel generator https://www.fontsquirrel.com/tools/webfont-generator
+Do not need to use Trebuchet, as it is a base web font
+*/
+@font-face {
+    font-family: 'Gotham';
+    src: url('gotham-bold-webfont.woff2') format('woff2'),
+         url('gotham-bold-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('gotham-light-webfont.woff2') format('woff2'),
+         url('gotham-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('gotham-medium-webfont.woff2') format('woff2'),
+         url('gotham-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*
 Downloaded from http://fontello.com, to minimize font character set & size. Use dev/fonts/config.json to update character set & re-download
 */
 
