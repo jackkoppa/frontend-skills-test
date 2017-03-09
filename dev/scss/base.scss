@@ -1,0 +1,184 @@
+/*
+Base (mini framework) styles, applicable across multiple projects
+*/
+
+@import 'variables';
+@import 'mq';
+@import 'mixins';
+
+/* Typography & social icons font */
+@import 'typography';
+
+/* General element styling */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    color: $dark-grey;
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+}
+
+// Running through all defined $font-sizes, including default media query font sizes
+/* Font sizes & media query font sizes */
+@each $breakpoint, $px in $mq-breakpoints {
+    @include mq($breakpoint) {
+        @each $key, $value in $font-sizes {
+            @if map-has-key($value, $breakpoint) {
+                $font-option: map-get($value, $breakpoint);
+                #{$key} { font-size: px2rem($font-option); }
+            }
+        }
+    }
+}
+
+a {
+    color: $secondary;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+.full-wrap {
+    background-color: $light-grey;
+}
+/* Box Sizing & Padding Framework */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: px2rem(1200px);
+    width: 100%;
+    $currentpx: 0;
+    @each $breakpoint, $px in $mq-breakpoints {
+        @if $px == null {
+            padding: px2rem(map-get($gutters, $breakpoint));
+            $currentpx: map-get($gutters, $breakpoint);
+        } @else if $currentpx != map-get($gutters, $breakpoint) {
+            @include mq($breakpoint) {
+                padding: px2rem(map-get($gutters, $breakpoint));
+            }
+            $currentpx: map-get($gutters, $breakpoint);
+        }
+    }
+    &.center {
+        margin: 0 auto;
+    }
+}
+
+.element {
+    $currentpx: 0;
+    @each $breakpoint, $px in $mq-breakpoints {
+        @if $px == null {
+            padding: px2rem(map-get($gutters, $breakpoint));
+            $currentpx: map-get($gutters, $breakpoint);
+        } @else if $currentpx != map-get($gutters, $breakpoint) {
+            @include mq($breakpoint) {
+                padding: px2rem(map-get($gutters, $breakpoint));
+            }
+            $currentpx: map-get($gutters, $breakpoint);
+        }
+    }
+    &.center {        
+        margin: 0 auto;
+    }
+}
+
+// xs, sm, md, lg, xl Box Sizing
+/* xs (base size) */
+.box-xs-0 { display: none; }
+@for $i from 1 through 12 {
+    .box-xs-#{$i} {
+        width: (100% / 12) * $i;
+    }
+}
+
+/* sm (mobile) */
+@include mq(sm) {
+    .box-sm-0 { display: none; }
+    @for $i from 1 through 12 {
+        .box-sm-#{$i} {
+            width: (100% / 12) * $i;
+        }
+    }
+}
+
+/* md (tablet) */
+@include mq(md) {
+    .box-md-0 { display: none; }
+    @for $i from 1 through 12 {
+        .box-md-#{$i} {
+            width: (100% / 12) * $i;
+        }
+    }
+}
+
+/* lg (laptop) */
+@include mq(lg) {
+    .box-lg-0 { display: none; }
+    @for $i from 1 through 12 {
+        .box-lg-#{$i} {
+            width: (100% / 12) * $i;
+        }
+    }
+}
+
+/* xl (desktop) */
+@include mq(xl) {
+    .box-xl-0 { display: none; }
+    @for $i from 1 through 12 {
+        .box-xl-#{$i} {
+            width: (100% / 12) * $i;
+        }
+    }
+}
+
+/* display & hide only at certain widths */
+@each $breakpoint, $px in $mq-breakpoints {
+    @include mq($breakpoint) {
+        .hide-#{$breakpoint} {
+            display: none;
+            visibility: none;
+            max-height: 0;
+            max-width: 0;
+            overflow: hidden;
+        }
+        .show-#{$breakpoint} {
+            display: block;
+            max-width: none;
+            max-height: none;
+            overflow: initial;
+            visibility: visible;    
+        }
+    }
+}

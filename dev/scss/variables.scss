@@ -1,0 +1,71 @@
+/*
+Variables, used across Sass files
+*/
+
+// Media Query Breakpoints
+$mq-breakpoints: (
+	xs: null,
+    sm: 480px,
+    md: 640px,
+    lg: 900px,
+    xl: 1200px
+) !default;
+
+// Typography
+$base-font-size: 16px !default;
+
+// Broken down into nested sass maps to define media query font sizes
+$font-sizes: (
+    h1: (xs: 24px, sm: 36px, md: 42px, lg: 66px, xl: 72px),
+    h2: (xs: 24px, sm: 24px, md: 30px, lg: 36px, xl: 42px),
+    h3: (xs: 20px, sm: 20px, md: 24px, lg: 30px, xl: 30px),
+    h4: (xs: 18px, sm: 18px, md: 20px, lg: 20px, xl: 24px),
+    h5: (xs: 18px),
+    h6: (xs: 12px),
+    p: (xs: 16px),    
+);
+
+// Colors
+$primary: #205686;
+$secondary: #2a7e72;
+$tertiary: #74625c;
+$white: #fff;
+$light-grey: #eee;
+$mid-grey: #777;
+$dark-grey: #444;
+$black: #000;
+$white-transparent: rgba(255,255,255,0.2);
+$white-semi-transparent: rgba(255,255,255,0.7);
+
+// Styling
+$fast-transition: 0.1s all linear;
+$std-transition: 0.3s all ease;
+$slow-transition: 1.25s all ease;
+
+$small-base-shadow: 1px 1px 2px -1px $black;
+$small-hover-shadow: 1px 1px 7px -1px $black;
+$base-shadow: 2px 2px 12px -3px $black;
+$hover-shadow: 2px 2px 20px -3px $black;
+
+// Structure
+// Padding
+// currently keeping padding the same across devices
+// if any padding *is* changed, a media query is automatically added for both .container and .element at that size
+$gutters: (
+    xs: 10px,
+    sm: 10px,
+    md: 10px,
+    lg: 10px,
+    xl: 10px
+);
+
+// Z-index levels
+$z-bottom: 1;
+$z-lower: 10;
+$z-mid: 20;
+$z-upper: 30;
+$z-top: 100;
+
+// Keep track of current $from & $until values for mq mixin
+$currentFrom: false;
+$currentUntil: false;

@@ -1,0 +1,32 @@
+{
+  "name": "frontend-boilerplate-2017",
+  "version": "1.0.0",
+  "description": "Basic frontend boilerplate with npm, Grunt, responsive images, Sass, postcss, babel, watch, & livereload server",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackkoppa/frontend-boilerplate-2017.git"
+  },
+  "author": "Jack Koppa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackkoppa/frontend-boilerplate-2017/issues"
+  },
+  "homepage": "https://github.com/jackkoppa/frontend-boilerplate-2017#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.7.3",
+    "babel-preset-es2015": "^6.22.0",
+    "grunt": "~1.0.0",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "~1.1.0",
+    "grunt-contrib-sass": "~1.0.0",
+    "grunt-contrib-uglify": "~2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-processhtml": "^0.4.1",
+    "grunt-responsive-images": "~1.10.1"
+  }
+}

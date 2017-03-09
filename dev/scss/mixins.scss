@@ -1,0 +1,65 @@
+/*
+Custom mixins used throughout Sass files
+*/
+
+// px to rem
+@function px2rem($px, $base-font-size: $base-font-size) {
+    @if $px == null {
+        @return null;
+    }
+    @if unitless($px) {
+        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
+        @return px2rem($px * 1px, $base-font-size);
+    } @else if unit($px) == rem {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1rem;
+}
+
+// px to em
+@function px2em($px, $base-font-size: $base-font-size) {
+    @if $px == null {
+        @return null;
+    }
+    @if unitless($px) {
+        @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
+        @return px2em($px * 1px, $base-font-size);
+    } @else if unit($px) == em {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1em;
+}
+
+// get font-sizes map
+@function f($element, $breakpoint: null) {
+    @if not map-has-key($font-sizes, $element) {
+        @warn "element key not found in $font-sizes. Property omitted";
+    }
+
+    // allows for individual selection of media query font-sizes
+    $size-options: map-get($font-sizes, $element);
+    @if $breakpoint == null and $currentFrom == false and $currentUntil == false {
+        $breakpoint: 'xs';
+    } @else if $currentFrom != false {
+        $breakpoint: $currentFrom;
+    } @else if $currentUntil != false {
+        $breakpoint: $currentUntil;
+    }
+    @if not map-has-key($size-options, $breakpoint) {
+        @return map-get($size-options, 'xs');
+    }
+
+    @return map-get($size-options, $breakpoint);
+}
+
+// get gutter size; defaults to xs gutter
+@function g($breakpoint: null) {
+    @if $breakpoint == null and $currentFrom == false and $currentUntil == false {
+        $breakpoint: 'xs';
+    } @else if $currentFrom != false {
+        $breakpoint: $currentFrom;
+    } @else if $currentUntil != false {
+        $breakpoint: $currentUntil;
+    }
+    @return map-get($gutters, $breakpoint);
+}
