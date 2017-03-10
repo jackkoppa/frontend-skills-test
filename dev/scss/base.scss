@@ -70,14 +70,11 @@ img {
     display: block;
     max-width: 100%;
 }
-.full-wrap {
-    background-color: $light-grey;
-}
+
 /* Box Sizing & Padding Framework */
 .container {
     display: flex;
     flex-wrap: wrap;
-    max-width: px2rem($max-content-width);
     width: 100%;
     $currentpx: 0;
     @each $breakpoint, $px in $mq-breakpoints {
@@ -90,9 +87,6 @@ img {
             }
             $currentpx: map-get($gutters, $breakpoint);
         }
-    }
-    &.center {
-        margin: 0 auto;
     }
 }
 
@@ -109,9 +103,21 @@ img {
             $currentpx: map-get($gutters, $breakpoint);
         }
     }
-    &.center {        
-        margin: 0 auto;
-    }
+}
+
+.center {
+    margin: 0 auto;
+}
+
+// elements without a max width
+.full-wrap {
+    max-width: initial;
+    width: 100%;
+}
+
+// set a max-width for any box elements
+.box-max-width {
+    max-width: px2rem($max-content-width);
 }
 
 // xs, sm, md, lg, xl Box Sizing
@@ -121,7 +127,8 @@ img {
         @for $i from 1 through 12 {
             .box-#{$breakpoint}-#{$i} {
                 width: (100% / 12) * $i;
-            }
+                @extend .box-max-width;
+            }            
         }
         /* display & hide only at certain widths */
         .hide-#{$breakpoint} {

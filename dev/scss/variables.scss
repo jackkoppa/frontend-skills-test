@@ -32,14 +32,14 @@ $font-sizes: (
 );
 
 // Colors
-$primary: #205686;
-$secondary: #2a7e72;
-$tertiary: #74625c;
 $white: #fff;
 $light-grey: #eee;
 $mid-grey: #777;
 $dark-grey: #444;
 $black: #000;
+$primary: #2a7e72;
+$secondary: $dark-grey;
+$tertiary: $mid-grey;
 $white-transparent: rgba(255,255,255,0.2);
 $white-semi-transparent: rgba(255,255,255,0.7);
 

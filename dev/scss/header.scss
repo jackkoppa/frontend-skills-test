@@ -7,5 +7,17 @@ Header styles
 @import 'mixins';
 
 header {
+	.upper-nav {
+		font-size: px2rem(f(h6));
+		font-weight: 300;
+
+		.upper-links {
+			text-align: right;
+			li {
+				display: inline;
+			}
+		}
+	}
+	
     
 }
