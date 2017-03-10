@@ -77,7 +77,7 @@ img {
 .container {
     display: flex;
     flex-wrap: wrap;
-    max-width: px2rem(1200px);
+    max-width: px2rem($max-content-width);
     width: 100%;
     $currentpx: 0;
     @each $breakpoint, $px in $mq-breakpoints {
