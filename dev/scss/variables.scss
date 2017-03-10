@@ -2,13 +2,16 @@
 Variables, used across Sass files
 */
 
+// Note: for this project, switching from framework's "mobile-first" approach,
+// to "desktop-first", given design constraints. See ../notes.md for more info
+
 // Media Query Breakpoints
 $mq-breakpoints: (
-	xs: null,
-    sm: 480px,
-    md: 640px,
-    lg: 900px,
-    xl: 1200px
+    xl: null,
+    lg: 1200px,
+    md: 900px,
+    sm: 640px,
+    xs: 480px,
 ) !default;
 
 // Typography
@@ -16,13 +19,13 @@ $base-font-size: 16px !default;
 
 // Broken down into nested sass maps to define media query font sizes
 $font-sizes: (
-    h1: (xs: 24px, sm: 36px, md: 42px, lg: 66px, xl: 72px),
-    h2: (xs: 24px, sm: 24px, md: 30px, lg: 36px, xl: 42px),
-    h3: (xs: 20px, sm: 20px, md: 24px, lg: 30px, xl: 30px),
-    h4: (xs: 18px, sm: 18px, md: 20px, lg: 20px, xl: 24px),
-    h5: (xs: 18px),
-    h6: (xs: 12px),
-    p: (xs: 16px),    
+    h1: (xl: 72px, lg: 66px, md: 42px, sm: 36px, xs: 24px),
+    h2: (xl: 42px, lg: 66px, md: 42px, sm: 36px, xs: 24px),
+    h3: (xl: 30px, lg: 30px, md: 24px, sm: 20px, xs: 20px),
+    h4: (xl: 24px, lg: 20px, md: 20px, sm: 18px, xs: 18px),
+    h5: (xl: 18px),
+    h6: (xl: 12px),
+    p: (xl: $base-font-size),    
 );
 
 // Colors
@@ -52,11 +55,11 @@ $hover-shadow: 2px 2px 20px -3px $black;
 // currently keeping padding the same across devices
 // if any padding *is* changed, a media query is automatically added for both .container and .element at that size
 $gutters: (
-    xs: 10px,
-    sm: 10px,
-    md: 10px,
+    xl: 10px,
     lg: 10px,
-    xl: 10px
+    md: 10px,
+    sm: 10px,
+    xs: 10px
 );
 
 // Z-index levels

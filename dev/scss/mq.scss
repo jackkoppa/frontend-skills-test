@@ -165,6 +165,8 @@ $mq-media-type: all !default;
         $currentUntil: $until !global;
         @if type-of($until) == number {
             $max-width: px2em($until);
+        } @else if mq-get-breakpoint-width($until, $breakpoints) == null {
+            $max-width: px2em(mq-get-breakpoint-width($until, $breakpoints));
         } @else {
             $max-width: px2em(mq-get-breakpoint-width($until, $breakpoints)) - .01em;
         }
