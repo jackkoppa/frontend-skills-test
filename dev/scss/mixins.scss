@@ -2,6 +2,10 @@
 Custom mixins used throughout Sass files
 */
 
+@import 'variables';
+@import 'mq';
+@import 'modernizr';
+
 // px to rem
 @function px2rem($px, $base-font-size: $base-font-size) {
     @if $px == null {
@@ -39,14 +43,14 @@ Custom mixins used throughout Sass files
     // allows for individual selection of media query font-sizes
     $size-options: map-get($font-sizes, $element);
     @if $breakpoint == null and $currentFrom == false and $currentUntil == false {
-        $breakpoint: 'xs';
+        $breakpoint: 'xl';
     } @else if $currentFrom != false {
         $breakpoint: $currentFrom;
     } @else if $currentUntil != false {
         $breakpoint: $currentUntil;
     }
     @if not map-has-key($size-options, $breakpoint) {
-        @return map-get($size-options, 'xs');
+        @return map-get($size-options, 'xl');
     }
 
     @return map-get($size-options, $breakpoint);
@@ -55,7 +59,7 @@ Custom mixins used throughout Sass files
 // get gutter size; defaults to xs gutter
 @function g($breakpoint: null) {
     @if $breakpoint == null and $currentFrom == false and $currentUntil == false {
-        $breakpoint: 'xs';
+        $breakpoint: 'xl';
     } @else if $currentFrom != false {
         $breakpoint: $currentFrom;
     } @else if $currentUntil != false {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en-US">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Frontend Boilderplate 2017</title>
@@ -15,7 +15,7 @@
 </head>
 <body>
     <header class="box-xl-12 center">
-        <div class="upper-nav">
+        <div class="upper-nav wrapper">
             <ul class="upper-links container box-xl-6">
                 <li class="element">
                     <a href="#">Home</a>
@@ -27,24 +27,18 @@
                     <a href="#">About Us</a>
                 </li>
             </ul>
-            <ul class="language-selector">
-                <li>
-                    <a href="#">
-                        <span class="flag-icon flag-icon-us"></span>
-                        <span>English</span>
-                    </a>                    
+            <ul class="language-selector container box-xl-3">
+                <li class="element selected" data-language="en-US">
+                    <span class="flag-icon flag-icon-us"></span>
+                    <span>English</span>              
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="flag-icon flag-icon-mx"></span>
-                        <span>Español</span>                        
-                    </a>
+                <li class="element" data-language="es-MX">
+                    <span class="flag-icon flag-icon-mx"></span>
+                    <span>Español</span>                        
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="flag-icon flag-icon-cn"></span>
-                        <span>中文</span>                        
-                    </a>
+                <li class="element" data-language="zh-CN">
+                    <span class="flag-icon flag-icon-cn"></span>
+                    <span>中文</span>                        
                 </li>
             </ul>
             <form action="">
@@ -249,6 +243,9 @@
 
     <!-- build:js js/jquery-3.1.1.min.js -->
     <script src="js/external/jquery-3.1.1.min.js"></script>
+    <!-- /build -->
+    <!-- build:js js/modernizr.min.js -->
+    <script src="js/external/modernizr.js"></script>
     <!-- /build -->
     <!-- build:js js/scripts.min.js -->
     <script src="js/config.js"></script>

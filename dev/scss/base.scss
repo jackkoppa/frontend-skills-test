@@ -2,8 +2,6 @@
 Base (mini framework) styles, applicable across multiple projects
 */
 
-@import 'variables';
-@import 'mq';
 @import 'mixins';
 
 /* Typography & social icons font */
@@ -72,10 +70,21 @@ img {
 }
 
 /* Box Sizing & Padding Framework */
+// generic wrapper div, which just determines display of child elements (no padding)
+.wrapper {
+    @include yep(flexbox, flexwrap) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @include nope(flexbox, flexwrap) {
+        display: block;
+        background-color: $primary;
+    }
+}
+
+// wrapper div with built-in padding; for most layouts, this is *half* of the expected padding between sections
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    @extend .wrapper;
     $currentpx: 0;
     @each $breakpoint, $px in $mq-breakpoints {
         @if $px == null {
@@ -90,6 +99,7 @@ img {
     }
 }
 
+// single block, used within .container. The padding here is the other half of expected padding between sections
 .element {
     $currentpx: 0;
     @each $breakpoint, $px in $mq-breakpoints {

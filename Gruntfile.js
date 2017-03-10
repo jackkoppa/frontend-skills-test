@@ -95,26 +95,23 @@ module.exports = function(grunt) {
 
         // apply autoprefixes for older browsers
         postcss: {
+            options: {
+                processors: [
+                    require('autoprefixer')({browsers: 'last 2 versions'})
+                ]
+            },
             dev: {
                 options: {
                     map: {
                         inline: false,
                         annotation: 'dev/css/maps/'
-                    },
-
-                    processors: [
-                        require('autoprefixer')({browsers: 'last 2 versions'})
-                    ]
+                    }
                 },
                 src: 'dev/css/*.css'
             },
             prod: {
                 options: {
-                    map: false,
-
-                    processors: [
-                        require('autoprefixer')({browsers: 'last 2 versions'})
-                    ]
+                    map: false
                 },
                 src: 'dist/css/*.css'
             }
@@ -204,6 +201,36 @@ module.exports = function(grunt) {
             dev: ['dev/js/compiledScripts.js']
         },
 
+        modernizr: {
+            options: {
+                "parseFiles": false,
+                "customTests": [],
+                "tests": [
+                  // Tests
+                ],
+                "options": [
+                  "setClasses"
+                ],
+                "files" : {
+                    "src": [
+                        "dev/{js,css}/*.{js,css}"
+                    ]
+                }
+            },
+            dev: {
+                // making sure that the other file doesn't get included
+                "devFile": "dist/js/modernizr.min.js",
+                "dest": "dev/js/external/modernizr.js",
+                "uglify": false
+            },
+            prod: {
+                // making sure that the other file doesn't get included
+                "devFile": "dev/js/external/modernizr.js",
+                "dest": "dist/js/modernizr.min.js",
+                "uglify": true
+            }
+        },
+
         // replaces links to dev js & css files, with links to single, minified files for production
         processhtml: {
             options: {
@@ -251,21 +278,22 @@ module.exports = function(grunt) {
             },
             devJS: {
                 files: 'dev/es6/*.js',
-                tasks: ['copy:dev','concat','babel','clean:dev','jshint']
+                tasks: ['copy:dev','concat','babel','clean:dev','modernizr:dev','jshint']
             },
             devSCSS: {
                 files: ['dev/scss/*.scss'],
-                tasks: ['sass:dev','postcss:dev']
+                tasks: ['sass:dev','postcss:dev','modernizr:dev']
             }
         }
     });
-
+    
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks("grunt-modernizr");
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-responsive-images');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -274,13 +302,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
 
     // run all responsive image & compiling tasks, for both dev & production, without running servers
-    grunt.registerTask('default', ['copy:dev','responsive_images','copy:prod','sass','postcss','concat','babel','clean:dev','uglify','jshint','processhtml']);
+    grunt.registerTask('default', ['copy:dev','responsive_images','copy:prod','sass','postcss','concat','babel','clean:dev','modernizr','uglify','jshint','processhtml']);
     
     // run all responsive image & compiling tasks for dev, then run a livereloading server
-    grunt.registerTask('serveDev', ['copy:dev','responsive_images','sass:dev','postcss:dev','concat','babel','clean:dev','jshint','connect:dev','watch']);
+    grunt.registerTask('serveDev', ['copy:dev','responsive_images','sass:dev','postcss:dev','concat','babel','clean:dev','modernizr:dev','jshint','connect:dev','watch']);
     
     // run all responsive image & compiling tasks for prod, then run a perpetuating server (not livereload, but remains active after Grunt completes)
-    grunt.registerTask('serveProd', ['copy:dev','responsive_images','copy:prod','sass:prod','postcss:prod','concat','babel','clean:dev','uglify','processhtml','connect:prod']);
+    grunt.registerTask('serveProd', ['copy:dev','responsive_images','copy:prod','sass:prod','postcss:prod','concat','babel','clean:dev','modernizr:prod','uglify','processhtml','connect:prod']);
 
     // can be periodically run to clean out img_responsive directories,
     // which are not flushed on each run of the responsive_images task

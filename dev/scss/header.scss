@@ -2,17 +2,23 @@
 Header styles
 */
 
-@import 'variables';
-@import 'mq';
 @import 'mixins';
 
 header {
 	.upper-nav {
 		font-size: px2rem(f(h6));
-		font-weight: 300;
+		
+		a {
+			color: $mid-grey;
+		}
 
 		.upper-links {
-			text-align: right;
+			@include yep(flexbox) {
+				justify-content: flex-end;
+			}
+			@include nope(flexbox) {
+				text-align: right;
+			}
 			li {
 				display: inline;
 			}
