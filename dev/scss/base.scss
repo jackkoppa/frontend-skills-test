@@ -5,6 +5,7 @@ Base (mini framework) styles, applicable across multiple projects
 @import 'mixins';
 
 /* Typography & social icons font */
+@import 'normalize';
 @import 'typography';
 
 /* General element styling */
@@ -75,10 +76,6 @@ img {
     @include yep(flexbox, flexwrap) {
         display: flex;
         flex-wrap: wrap;
-    }
-    @include nope(flexbox, flexwrap) {
-        display: block;
-        background-color: $primary;
     }
 }
 

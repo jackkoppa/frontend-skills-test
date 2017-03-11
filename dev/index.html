@@ -15,8 +15,8 @@
 </head>
 <body>
     <header class="box-xl-12 center">
-        <div class="upper-nav wrapper">
-            <ul class="upper-links container box-xl-6">
+        <div class="upper-nav wrapper box-xl-12">
+            <ul class="upper-links wrapper box-xl-6">
                 <li class="element">
                     <a href="#">Home</a>
                 </li>
@@ -28,63 +28,98 @@
                 </li>
             </ul>
             <ul class="language-selector container box-xl-3">
-                <li class="element selected" data-language="en-US">
-                    <span class="flag-icon flag-icon-us"></span>
-                    <span>English</span>              
+                <li class="box-xl-12 selected" data-language="en-US">
+                    <a class="element" href="#">
+                        <span class="flag-icon flag-icon-us"></span>
+                        <span>English</span>                                      
+                    </a>
                 </li>
-                <li class="element" data-language="es-MX">
-                    <span class="flag-icon flag-icon-mx"></span>
-                    <span>Español</span>                        
+                <li class="box-xl-12" data-language="es-MX">
+                    <a class="element" href="#">
+                        <span class="flag-icon flag-icon-mx"></span>
+                        <span>Español</span>                        
+                    </a>
                 </li>
-                <li class="element" data-language="zh-CN">
-                    <span class="flag-icon flag-icon-cn"></span>
-                    <span>中文</span>                        
+                <li class="box-xl-12" data-language="zh-CN">
+                    <a class="element" href="#">
+                        <span class="flag-icon flag-icon-cn"></span>
+                        <span>中文</span> 
+                    </a>
                 </li>
             </ul>
-            <form action="">
-                <input type="text">
+            <form action="#" class="search box-xl-3">
+                <span class="input input--hideo box-xl-3">
+                    <input class="input__field input__field--hideo" type="text" placeholder="Search" id="search-input"/>
+                    <label class="input__label input__label--hideo" for="search-input">
+                        <i class="icon-search icon icon--hideo"></i>
+                        <span class="input__label-content input__label-content--hideo">Search</span>
+                    </label>
+                </span>
+                <span class="search-submit">
+                    <button type="submit"><i class="icon-right-dir"></i></button>
+                </span>
             </form>
         </div><!-- /.upper-nav -->
-        <nav>
-            <ul class="primary-nav">
-                <li class="logo-wrapper">
-                    <img src="img_responsive/bissell-logo.png" alt="Bissell Logo">
-                </li>
-                <li>
-                    <a href="#">Products</a><i class="icon-down-dir"></i>
-                    <ul class="secondary-nav">
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Find the Perfect Match</a><i class="icon-down-dir"></i>
-                    <ul class="secondary-nav">
-                        
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Parts &amp; Accessories</a><i class="icon-down-dir"></i>
-                    <ul class="secondary-nav">
-                        
-                    </ul>
-                </li>
-            </ul>            
-        </nav>
-        <div class="additional-options">
-            <div class="option-titles">
-                <span class="buy-option">Where to Buy</span>
-                <span class="account-option">My Account</span>
+        <div class="main-nav full-wrap">
+            <nav class="box-xl-8">
+                <ul class="primary-nav">
+                    <li class="logo-wrapper">
+                        <a href="#">
+                            <img src="img_responsive/bissell-logo.png" alt="Bissell Logo">                        
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Products</a><i class="icon-down-dir"></i>
+                        <ul class="secondary-nav">
+                            <li>
+                                <a href="#">
+                                    <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
+                                    <p>Deep Cleaners</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
+                                    <p>Deep Cleaners</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
+                                    <p>Deep Cleaners</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Find the Perfect Match</a><i class="icon-down-dir"></i>
+                        <ul class="secondary-nav">
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Parts &amp; Accessories</a><i class="icon-down-dir"></i>
+                        <ul class="secondary-nav">
+                            
+                        </ul>
+                    </li>
+                </ul>            
+            </nav>
+            <div class="additional-options box-xl-4">
+                <div class="option-titles">
+                    <span class="buy-option">Where to Buy</span>
+                    <span class="account-option">My Account</span>
+                </div>
+                <div class="option-inputs">
+                    <form action="" class="buy-form">
+                        <input type="text">
+                    </form>
+                    <form action="" class="account-form">
+                        <input type="text">
+                    </form>
+                </div>
             </div>
-            <div class="option-inputs">
-                <form action="" class="buy-form">
-                    <input type="text">
-                </form>
-                <form action="" class="account-form">
-                    <input type="text">
-                </form>
-            </div>
-        </div>
-
+        </div><!-- /.main-nav -->
     </header>
     <main class="full-wrap">
         <div class="carousel-wrapper">

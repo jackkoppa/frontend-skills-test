@@ -7,3 +7,140 @@ Primary styles, unique to this project, but applicable across header, main, & fo
 ul li {
 	list-style: none;
 }
+
+
+
+/*
+Animated inputs, pulled from https://github.com/codrops/TextInputEffects/
+*/
+
+.input {
+	position: relative;
+	z-index: $z-bottom;
+	display: inline-block;
+	max-width: 400px;
+	width: 100%;
+	vertical-align: top;
+}
+
+.input__field {
+	position: relative;
+	display: block;
+	float: right;
+	padding: px2rem(g() / 2);
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	background: #f0f0f0;
+	color: #aaa;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input__field:focus {
+	outline: none;
+}
+
+.input__label {
+	display: inline-block;
+	float: right;
+	padding: 0 1em;
+	width: 40%;
+	color: #6a7989;
+	font-weight: bold;
+	font-size: 70.25%;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.input__label-content {
+	position: relative;
+	display: block;
+	padding: 1.6em 0;
+	width: 100%;
+}
+
+.graphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	fill: none;
+}
+
+.icon {
+	font-size: 150%;
+}
+
+/* Hideo */
+.input--hideo {
+	border: 1px solid $light-grey;
+	padding-left: 1em;
+	overflow: hidden;
+	background: #fff;
+}
+
+.input__field--hideo {
+	color: $mid-grey;
+	width: 100%;
+	background: transparent;
+	transform: translate3d(0.75em, 0, 0);
+	transition: transform 0.3s;
+	&::placeholder {
+		color: $mid-grey;
+		opacity: 0.8;
+		transition: $std-transition;
+	}
+}
+
+.input__label--hideo {
+	left: 0;
+	position: absolute;
+	padding: px2rem(g() / 4) 0 0;
+	width: 4em;
+	height: 100%;
+}
+
+.input__label--hideo::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 4em;
+	height: 100%;
+	transform-origin: 0% 50%;
+	transition: transform 0.3s;
+}
+
+.icon--hideo {
+	color: $mid-grey;
+	transform: scale3d(1, 1, 1);
+	transform-origin: 0% 50%;
+	transition: transform 0.3s;
+	&::before {
+		transition: $std-transition;
+	}
+}
+
+.input__label-content--hideo {
+	position: absolute;
+	top: 100%;
+}
+
+.input__field--hideo:focus {
+	transform: translate3d(0, 0, 0);
+	&::placeholder {
+		opacity: 0;
+	}
+}
+
+.input__field--hideo:focus + .input__label--hideo .icon--hideo::before {
+	transform: scale3d(0.6, 0.6, 1);
+}

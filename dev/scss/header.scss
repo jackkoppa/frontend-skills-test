@@ -7,23 +7,111 @@ Header styles
 header {
 	.upper-nav {
 		font-size: px2rem(f(h6));
-		
-		a {
+		@include yep(flexbox, flexwrap) {
+			align-items: flex-start;
+			flex-wrap: nowrap;
+		}
+
+		&, & a {
 			color: $mid-grey;
+		}
+		
+		ul, form {
+
 		}
 
 		.upper-links {
+			border-right: 1px solid;
+			flex: 80% 8 1;
 			@include yep(flexbox) {
 				justify-content: flex-end;
 			}
 			@include nope(flexbox) {
 				text-align: right;
+				float: left;
 			}
 			li {
-				display: inline;
+				@include yep(flexbox) {
+					display: block;
+				}
+				@include nope(flexbox) {
+					display: table-cell;
+				}
 			}
 		}
-	}
+
+		.language-selector {
+			position: relative;
+			flex: 25% 1 1;
+			@include yep(flexbox) {
+				justify-content: center;
+			}
+			@include nope(flexbox) {
+				float: left;
+			}
+
+			li {
+				background-color: $white;
+				left: 0;
+				position: absolute;
+				top: 0;
+				transition: $std-transition;
+				&.selected {
+					z-index: $z-upper;
+				}
+
+				a {
+					display: block;
+					margin: 0 auto;
+					min-width: 50%;
+					width: auto;
+				}
+			}
+
+			&:hover {
+				@for $i from 1 through 10 {
+					li:nth-of-type(#{$i}) {
+						transform: translate3d(0, 100% * ($i - 1), 0);
+					}
+				}
+			}
+		}
+
+		.search {
+			padding: px2rem(g() / 2);
+			@include yep(flexbox) {
+				display: flex;
+				flex: 25% 1 1;
+			}
+			.search-submit {
+				padding-left: px2rem(g() / 2);
+
+				button {
+					background-color: transparent;
+					border: none;
+					cursor: pointer;
+					height: 100%;
+					padding: 0;
+
+					.icon-right-dir {
+						&::before {
+							border-radius: 50%;
+							background-color: $primary;
+							color: $white;
+							padding: px2rem(g() / 4);
+						}
+					}
+				}
+			}
+		}
+	} // /.upper-nav
 	
+	.main-nav {
+		position: relative;
+		@include yep(flexbox) {
+			display: flex;
+			
+		}
+	}
     
 }

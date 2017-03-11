@@ -271,7 +271,7 @@ module.exports = function(grunt) {
                 livereload: false
             },
             refresh: {
-                files: ['dev/index.html','dev/js/*.js','dev/css/*.css'],
+                files: ['dev/index.html','dev/js/**/*.js','dev/css/**/*.css'],
                 options: {
                     livereload: true
                 }
@@ -282,7 +282,7 @@ module.exports = function(grunt) {
             },
             devSCSS: {
                 files: ['dev/scss/*.scss'],
-                tasks: ['sass:dev','postcss:dev','modernizr:dev']
+                tasks: ['sass:dev','modernizr:dev','postcss:dev']
             }
         }
     });
