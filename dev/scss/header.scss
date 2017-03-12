@@ -2,8 +2,6 @@
 Header styles
 */
 
-@import 'mixins';
-
 header {
 	.upper-nav {
 		font-size: px2rem(f(h6));
@@ -69,6 +67,7 @@ header {
 			}
 
 			&:hover {
+				z-index: $z-mid;
 				@for $i from 1 through 10 {
 					li:nth-of-type(#{$i}) {
 						transform: translate3d(0, 100% * ($i - 1), 0);
@@ -108,9 +107,47 @@ header {
 	
 	.main-nav {
 		position: relative;
-		@include yep(flexbox) {
-			display: flex;
-			
+		@include gradient-t2b(#fff,#f3f3f3);
+		z-index: $z-lower;
+
+		.primary-nav {
+			@include yep(flexbox, flexwrap) {
+				display: flex;
+				align-items: flex-end;
+				flex-wrap: wrap;
+			}
+
+			li {
+				cursor: pointer;
+				display: inline;
+				margin-bottom: px2rem(- g());
+				padding-bottom: px2rem(g() * 2);
+
+				.secondary-nav {
+					@extend .full-wrap;
+					bottom: -100%;
+					left: 0;
+					opacity: 0;
+					position: absolute;
+					transition: $std-transition;
+					width: 100vw;
+					visibility: hidden;
+					z-index: $z-bottom;
+					@include yep(flexbox, flexwrap) {
+						display: flex;
+						flex-wrap: wrap;
+					}
+
+					li {
+						display: block;
+					}
+				}
+
+				&:hover .secondary-nav {
+					visibility: visible;
+					opacity: 1;
+				}
+			}
 		}
 	}
     

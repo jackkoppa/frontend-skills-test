@@ -1,0 +1,14 @@
+/*
+Compiled styles (pull in all scss files, exported unminified for development, minified for production)
+*/
+// Previously, development used all files with content as separate <link> tags in index.html
+// However, that did not allow @extend of base.scss styles
+// Because Chrome dev tools are able to show individual scss source files, even when only a single css file is used,
+// this sheet is now the only one used for both development & production
+
+@import 'mixins';
+@import 'base';
+@import 'primary';
+@import 'header';
+@import 'main';
+@import 'footer';

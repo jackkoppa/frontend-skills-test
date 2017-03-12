@@ -78,7 +78,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'dev/scss',
-                    src: ['*.scss','external/*.scss'],
+                    src: ['style.scss','external/*.scss'],
                     dest: 'dev/css',
                     ext: '.css'
                 }]
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'dist/css/style.min.css': 'dev/scss/compiledStyle.scss',
+                    'dist/css/style.min.css': 'dev/scss/style.scss',
                 }
             }
         },
@@ -97,7 +97,13 @@ module.exports = function(grunt) {
         postcss: {
             options: {
                 processors: [
-                    require('autoprefixer')({browsers: 'last 2 versions'})
+                    require('autoprefixer')({
+                        browsers: [
+                            'last 2 versions',
+                            'ie >= 9'
+                        ],
+                        remove: false
+                    })
                 ]
             },
             dev: {

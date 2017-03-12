@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Frontend Boilderplate 2017</title>
     <!-- build:css css/style.min.css -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/primary.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- /build -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700" rel="stylesheet">
 </head>
 <body>
-    <header class="box-xl-12 center">
-        <div class="upper-nav wrapper box-xl-12">
+    <header class="full-wrap wrapper">
+        <div class="upper-nav wrapper box-xl-12 center">
             <ul class="upper-links wrapper box-xl-6">
                 <li class="element">
                     <a href="#">Home</a>
@@ -60,66 +56,68 @@
                 </span>
             </form>
         </div><!-- /.upper-nav -->
-        <div class="main-nav full-wrap">
-            <nav class="box-xl-8">
-                <ul class="primary-nav">
-                    <li class="logo-wrapper">
-                        <a href="#">
-                            <img src="img_responsive/bissell-logo.png" alt="Bissell Logo">                        
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Products</a><i class="icon-down-dir"></i>
-                        <ul class="secondary-nav">
-                            <li>
-                                <a href="#">
-                                    <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
-                                    <p>Deep Cleaners</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
-                                    <p>Deep Cleaners</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
-                                    <p>Deep Cleaners</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Find the Perfect Match</a><i class="icon-down-dir"></i>
-                        <ul class="secondary-nav">
-                            
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">Parts &amp; Accessories</a><i class="icon-down-dir"></i>
-                        <ul class="secondary-nav">
-                            
-                        </ul>
-                    </li>
-                </ul>            
-            </nav>
-            <div class="additional-options box-xl-4">
-                <div class="option-titles">
-                    <span class="buy-option">Where to Buy</span>
-                    <span class="account-option">My Account</span>
+        <div class="main-nav wrapper full-wrap"><!-- for full-width background-gradient -->
+            <div class="container box-xl-12 center">
+                <nav class="box-xl-8">
+                    <ul class="primary-nav">
+                        <li class="logo-wrapper element">
+                            <a href="#">
+                                <img src="img_responsive/bissell-logo.png" alt="Bissell Logo">                        
+                            </a>
+                        </li>
+                        <li class="element">
+                            <a href="#">Products</a><i class="icon-down-dir"></i>
+                            <ul class="secondary-nav container">
+                                <li>
+                                    <a href="#">
+                                        <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
+                                        <p>Deep Cleaners</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
+                                        <p>Deep Cleaners</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img_responsive/deep-cleaners.png" alt="Deep Cleaners">
+                                        <p>Deep Cleaners</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="element">
+                            <a href="#">Find the Perfect Match</a><i class="icon-down-dir"></i>
+                            <ul class="secondary-nav container">
+                                
+                            </ul>
+                        </li>
+                        <li class="element">
+                            <a href="#">Parts &amp; Accessories</a><i class="icon-down-dir"></i>
+                            <ul class="secondary-nav container">
+                                
+                            </ul>
+                        </li>
+                    </ul>            
+                </nav>
+                <div class="additional-options box-xl-4">
+                    <div class="option-titles">
+                        <span class="buy-option">Where to Buy</span>
+                        <span class="account-option">My Account</span>
+                    </div>
+                    <div class="option-inputs">
+                        <form action="" class="buy-form">
+                            <input type="text">
+                        </form>
+                        <form action="" class="account-form">
+                            <input type="text">
+                        </form>
+                    </div>
                 </div>
-                <div class="option-inputs">
-                    <form action="" class="buy-form">
-                        <input type="text">
-                    </form>
-                    <form action="" class="account-form">
-                        <input type="text">
-                    </form>
-                </div>
-            </div>
-        </div><!-- /.main-nav -->
+            </div><!-- /.container -->
+        </div><!-- /.main-nav.wrapper.full-wrap -->
     </header>
     <main class="full-wrap">
         <div class="carousel-wrapper">
