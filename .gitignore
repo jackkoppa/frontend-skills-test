@@ -19,6 +19,9 @@ Thumbs.db
 # distribution/production directory
 dist
 
+# generated index.html (comes from _index.html, under templates/)
+dev/index.html
+
 # temp. css files in development directory
 dev/css
 
