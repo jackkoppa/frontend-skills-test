@@ -159,8 +159,10 @@ module.exports = function(grunt) {
         // clean various directories
         clean: {
             // to avoid confusion when developing, deletes the concatenated es6 file
-            // & resume.js (from resume-data), after they are used by babel
-            dev: ['dev/es6/compiledScripts.js'],
+            // after use by babel
+            dev: [
+                'dev/es6/compiledScripts.js'
+            ],
 
             // could be periodically run to clean out img_responsive directories,
             // which are not flushed on each run of the responsive_images task
@@ -241,9 +243,20 @@ module.exports = function(grunt) {
         processhtml: {
             options: {
             },
-            prod: {
+            dev: {
+                options: {
+                    recursive: true
+                },
                 files: {
-                    'dist/index.html': ['dev/index.html']
+                    'dev/index.html': ['dev/templates/_index.html']
+                }
+            },
+            prod: {
+                options: {
+                    recursive: true
+                },
+                files: {
+                    'dist/index.html': ['dev/templates/_index.html']
                 }
             }
         },
@@ -289,6 +302,10 @@ module.exports = function(grunt) {
             devSCSS: {
                 files: ['dev/scss/*.scss'],
                 tasks: ['sass:dev','modernizr:dev','postcss:dev']
+            },
+            devHTML: {
+                files: ['dev/templates/**/*.html'],
+                tasks: ['processhtml:dev']
             }
         }
     });
@@ -311,7 +328,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['copy:dev','responsive_images','copy:prod','sass','postcss','concat','babel','clean:dev','modernizr','uglify','jshint','processhtml']);
     
     // run all responsive image & compiling tasks for dev, then run a livereloading server
-    grunt.registerTask('serveDev', ['copy:dev','responsive_images','sass:dev','postcss:dev','concat','babel','clean:dev','modernizr:dev','jshint','connect:dev','watch']);
+    grunt.registerTask('serveDev', ['copy:dev','responsive_images','sass:dev','postcss:dev','concat','babel','clean:dev','modernizr:dev','jshint','processhtml:dev','connect:dev','watch']);
     
     // run all responsive image & compiling tasks for prod, then run a perpetuating server (not livereload, but remains active after Grunt completes)
     grunt.registerTask('serveProd', ['copy:dev','responsive_images','copy:prod','sass:prod','postcss:prod','concat','babel','clean:dev','modernizr:prod','uglify','processhtml','connect:prod']);
