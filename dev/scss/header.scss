@@ -3,154 +3,171 @@ Header styles
 */
 
 header {
-	.upper-nav {
-		font-size: px2rem(f(h6));
-		@include yep(flexbox, flexwrap) {
-			align-items: flex-start;
-			flex-wrap: nowrap;
-		}
+	position: relative;
+	@include gradient-t2b(#fff,#f3f3f3);
 
-		&, & a {
-			color: $mid-grey;
-		}
-		
-		ul, form {
+	.logo-wrapper {
 
-		}
+	}
 
-		.upper-links {
-			border-right: 1px solid;
-			flex: 80% 8 1;
-			@include yep(flexbox) {
-				justify-content: flex-end;
+	.nav-wrapper {
+
+		.upper-nav {
+			font-size: px2rem(f(h6));
+			@include yep(flexbox, flexwrap) {
+				align-items: flex-start;
+				flex-wrap: nowrap;
 			}
-			@include nope(flexbox) {
-				text-align: right;
-				float: left;
+
+			&, & a {
+				color: $mid-grey;
 			}
-			li {
+			
+			ul, form {
+
+			}
+
+			.upper-links {
+				border-right: 1px solid;
+				flex: 80% 8 1;
 				@include yep(flexbox) {
-					display: block;
+					justify-content: flex-end;
 				}
 				@include nope(flexbox) {
-					display: table-cell;
+					text-align: right;
+					float: left;
 				}
-			}
-		}
-
-		.language-selector {
-			position: relative;
-			flex: 25% 1 1;
-			@include yep(flexbox) {
-				justify-content: center;
-			}
-			@include nope(flexbox) {
-				float: left;
-			}
-
-			li {
-				background-color: $white;
-				left: 0;
-				position: absolute;
-				top: 0;
-				transition: $std-transition;
-				&.selected {
-					z-index: $z-upper;
-				}
-
-				a {
-					display: block;
-					margin: 0 auto;
-					min-width: 50%;
-					width: auto;
-				}
-			}
-
-			&:hover {
-				z-index: $z-mid;
-				@for $i from 1 through 10 {
-					li:nth-of-type(#{$i}) {
-						transform: translate3d(0, 100% * ($i - 1), 0);
+				li {
+					@include yep(flexbox) {
+						display: block;
+					}
+					@include nope(flexbox) {
+						display: table-cell;
 					}
 				}
 			}
-		}
 
-		.search {
-			padding: px2rem(g() / 2);
-			@include yep(flexbox) {
-				display: flex;
+			.language-selector {
+				position: relative;
 				flex: 25% 1 1;
-			}
-			.search-submit {
-				padding-left: px2rem(g() / 2);
+				@include yep(flexbox) {
+					justify-content: center;
+				}
+				@include nope(flexbox) {
+					float: left;
+				}
 
-				button {
-					background-color: transparent;
-					border: none;
-					cursor: pointer;
-					height: 100%;
-					padding: 0;
+				li {
+					background-color: $white;
+					left: 0;
+					position: absolute;
+					top: 0;
+					transition: $std-transition;
+					&.selected {
+						z-index: $z-upper;
+					}
 
-					.icon-right-dir {
-						&::before {
-							border-radius: 50%;
-							background-color: $primary;
-							color: $white;
-							padding: px2rem(g() / 4);
+					a {
+						display: block;
+						margin: 0 auto;
+						min-width: 50%;
+						width: auto;
+					}
+				}
+
+				&:hover {
+					z-index: $z-mid;
+					@for $i from 1 through 10 {
+						li:nth-of-type(#{$i}) {
+							transform: translate3d(0, 100% * ($i - 1), 0);
 						}
 					}
 				}
 			}
-		}
-	} // /.upper-nav
-	
-	.main-nav {
-		position: relative;
-		@include gradient-t2b(#fff,#f3f3f3);
-		z-index: $z-lower;
 
-		.primary-nav {
-			@include yep(flexbox, flexwrap) {
-				display: flex;
-				align-items: flex-end;
-				flex-wrap: wrap;
-			}
+			.search {
+				padding: px2rem(g() / 2);
+				@include yep(flexbox) {
+					display: flex;
+					flex: 25% 1 1;
+				}
+				.search-submit {
+					padding-left: px2rem(g() / 2);
 
-			li {
-				cursor: pointer;
-				display: inline;
-				margin-bottom: px2rem(- g());
-				padding-bottom: px2rem(g() * 2);
+					button {
+						background-color: transparent;
+						border: none;
+						cursor: pointer;
+						height: 100%;
+						padding: 0;
 
-				.secondary-nav {
-					@extend .full-wrap;
-					background-color: rgba(256,256,256,0.7);
-					top: 100%;
-					cursor: default;
-					left: 0;
-					opacity: 0;
-					position: absolute;
-					transition: $std-transition;
-					width: 100vw;
-					visibility: hidden;
-					z-index: $z-bottom;
-					@include yep(flexbox, flexwrap) {
-						display: flex;
-						flex-wrap: wrap;
-					}
-
-					li {
-						display: block;
+						.icon-right-dir {
+							&::before {
+								border-radius: 50%;
+								background-color: $primary;
+								color: $white;
+								padding: px2rem(g() / 4);
+							}
+						}
 					}
 				}
+			}
+		} // /.upper-nav
+		
+		.main-nav {
+			z-index: $z-lower;
+			align-items: flex-end;
 
-				&:hover .secondary-nav {
-					visibility: visible;
-					opacity: 1;
+			.dropdown-parent {
+				@include yep(flexbox, flexwrap) {
+					display: flex;
+					align-items: flex-end;
+					flex-wrap: wrap;
+				}
+
+				li {
+					color: $dark-grey;
+					cursor: pointer;
+					display: inline;
+					margin-bottom: px2rem(- g());
+					padding-bottom: px2rem(g() * 2);
+
+					a {
+						color: $dark-grey;
+					}
+
+					.dropdown-child {
+						@extend .full-wrap;
+						background-color: rgba(256,256,256,0.7);
+						top: 100%;
+						cursor: default;
+						left: 0;
+						opacity: 0;
+						position: absolute;
+						transition: $std-transition;
+						transition-delay: $std-transition-delay;
+						width: 100vw;
+						visibility: hidden;
+						z-index: $z-lower;
+						@include yep(flexbox, flexwrap) {
+							display: flex;
+							flex-wrap: wrap;
+						}
+
+						li {
+							display: block;							
+						}						
+					}
+
+					&:hover > .dropdown-child {
+						visibility: visible;
+						opacity: 1;
+					}
 				}
 			}
 		}
 	}
+
+	
     
 }

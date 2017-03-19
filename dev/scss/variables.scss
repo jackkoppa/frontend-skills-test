@@ -47,6 +47,9 @@ $fast-transition: 0.1s all linear;
 $std-transition: 0.3s all ease;
 $slow-transition: 1.25s all ease;
 
+$fast-transition-delay: 0.1s;
+$std-transition-delay: 0.2s;
+
 $small-base-shadow: 1px 1px 2px -1px $black;
 $small-hover-shadow: 1px 1px 7px -1px $black;
 $base-shadow: 2px 2px 12px -3px $black;

@@ -142,3 +142,55 @@ Animated inputs, pulled from https://github.com/codrops/TextInputEffects/
 .input__field--hideo:focus + .input__label--hideo .icon--hideo::before {
 	transform: scale3d(0.6, 0.6, 1);
 }
+
+
+
+/* Kohana */
+.input--kohana {
+	overflow: hidden;
+	background: #fff;
+}
+
+.input__field--kohana {
+	width: 100%;
+	background: transparent;
+	padding-left: 2.75em;
+	color: #6a7989;
+}
+
+.input__label--kohana {
+	position: absolute;
+	width: 100%;
+	text-align: left;
+	pointer-events: none;
+}
+
+.input__label-content--kohana {
+	display: inline-block;
+	width: auto;
+	-webkit-transform: translate3d(-1.75em, 0, 0);
+	transform: translate3d(-1.75em, 0, 0);
+	transition: $std-transition;
+}
+
+.icon--kohana {
+	color: $mid-grey;
+	display: inline-block;
+	margin-top: 0.9em;
+	-webkit-transform: translate3d(-2em, 0, 0);
+	transform: translate3d(-2em, 0, 0);
+	transition: $std-transition;
+}
+
+.input__field--kohana:focus + .input__label--kohana .input__label-content--kohana,
+.input--filled .input__label-content--kohana {
+	opacity: 0;
+	-webkit-transform: translate3d(200px, 0, 0);
+	transform: translate3d(200px, 0, 0);
+}
+
+.input__field--kohana:focus + .input__label--kohana .icon--kohana,
+.input--filled  .icon--kohana {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
