@@ -6,6 +6,16 @@ ul li {
 	list-style: none;
 }
 
+// Handle image wrappers
+.image-wrapper {
+	max-width: 100%;
+	overflow: hidden;
+
+	img {
+		max-width: initial;
+	}
+}
+
 
 
 /*

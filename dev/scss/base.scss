@@ -175,3 +175,22 @@ img {
         }        
     }
 }
+
+// Coloring
+.primary { color: $primary; }
+.secondary { color: $secondary; }
+.tertiary { color: $tertiary; }
+.white { color: $white; }
+.black { color: $black; }
+.light-grey { color: $light-grey; }
+.mid-grey { color: $mid-grey; }
+.dark-grey { color: $dark-grey; }
+
+.primary-bg { background-color: $primary; }
+.secondary-bg { background-color: $secondary; }
+.tertiary-bg { background-color: $tertiary; }
+.white-bg { background-color: $white; }
+.black-bg { background-color: $black; }
+.light-grey-bg { background-color: $light-grey; }
+.mid-grey-bg { background-color: $mid-grey; }
+.dark-grey-bg { background-color: $dark-grey; }

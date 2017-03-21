@@ -3,5 +3,111 @@ Main/content styles
 */
 
 main {
-	
+	.carousel {
+		position: relative;
+		width: 100vw;
+
+		.carousel-nav {
+			position: absolute;
+			right: px2rem(g() * 2);
+			top: px2rem(g() * 2);
+			width: 25%;
+			z-index: $z-upper;
+
+			i,
+			ul,
+			ul li {
+				display: inline-block;
+			}
+
+			i,
+			li {
+				cursor: pointer;
+			} 
+
+			i {
+				background-color: $black;
+				border-radius: 50%;
+				color: $white;
+				height: $base-font-size + 4px;
+				vertical-align: top;
+				width: $base-font-size + 4px;
+
+				&:before {
+					display: block;
+					font-size: px2rem(f(h6));
+					line-height: $base-font-size + 4px;
+					margin: 0 auto;
+				}
+			}
+
+			ul {
+				height: $base-font-size + 4px;
+				padding: 2px 0;
+
+				li,
+				li div {
+					transition: $std-transition;
+					transition-delay: $fast-transition-delay;
+				}
+
+				li {
+					background-color: $white;
+					border-radius: 50%;
+					height: $base-font-size;
+					position: relative;
+					width: $base-font-size;
+
+					& > div {
+						background-color: $white;
+						left: -66px;
+						opacity: 0;
+						padding: px2rem(g() / 2);
+						position: absolute;
+						top: px2rem(g() * 3);
+						visibility: hidden;
+						width: 100px;
+						&:before {
+							content: "";
+							border: 10px solid transparent;
+							border-bottom-color: $white;
+							left: 66px;
+							position: absolute;
+							top: -19px;
+						}
+
+						p {
+							text-transform: uppercase;
+						}
+
+						img {
+							height: 60px;
+						}
+					}
+
+					&:hover {
+						background-color: $primary;
+
+						div {
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+				}
+			}
+		}
+
+		.slide {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			transform: translateX(100%);
+
+			&.active {
+				transform: translateX(0);
+			}
+
+		}
+	}
 }
