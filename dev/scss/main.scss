@@ -103,9 +103,27 @@ main {
 			left: 0;
 			width: 100%;
 			transform: translateX(100%);
-
 			&.active {
 				transform: translateX(0);
+			}
+
+			img {
+				min-width: 100%;
+				width: 100%;
+			}
+
+			.slide-plate {
+				color: $white;
+				position: absolute;
+				top: px2rem(100px);
+
+				p {
+					width: 50%;
+				}
+
+				button {
+					margin-top: 0;
+				}
 			}
 
 		}
